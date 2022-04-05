@@ -10,6 +10,7 @@ public class DriverBT
 		
 		System.out.println("(binaryTree) post-order: ");
 		aTree.postorderTraverse();
+		System.out.println();
 		
 		System.out.println("(binaryNode) post-order: ");
 		aTree.postorderTraverse_callBinaryNodeMethod();

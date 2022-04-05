@@ -122,7 +122,7 @@ class BinaryNode<T>
          root.postorderTraverse_binaryNodeMethod();
       }
 
-      System.out.println(data);
+      System.out.print(data);
 
    }
    
