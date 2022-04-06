@@ -19,6 +19,25 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
       initializeTree(rootData, leftTree, rightTree);
    } // end constructor
 
+   //extra feature
+   public BinaryTree(String post, String in)
+   {
+       /*
+        Given Tree:
+             A
+           /   \
+          B     C
+         / \   /
+        D   E  F
+                \
+                 G
+        */
+
+      // post : DEBGFCA
+      // in : DBEAFGC
+
+   }
+
    public void setTree(T rootData, BinaryTreeInterface<T> leftTree,
                                    BinaryTreeInterface<T> rightTree)
    {
