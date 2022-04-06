@@ -34,6 +34,13 @@ public class BinaryTreeTest
         tree.postorderTraverse_callBinaryNodeMethod();
 
         assertEquals("", out.toString());
+
+        // Tests height and nodes
+        assertEquals(0, tree.getHeight());
+        assertEquals(0, tree.getHeight_callBinaryNodeMethod());
+
+        assertEquals(0, tree.getNumberOfNodes());
+        assertEquals(0, tree.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
@@ -51,6 +58,13 @@ public class BinaryTreeTest
         System.out.print("\n");
 
         assertEquals("A\nA\n", out.toString());
+
+        // Tests height and nodes
+        assertEquals(1, tree.getHeight());
+        assertEquals(1, tree.getHeight_callBinaryNodeMethod());
+
+        assertEquals(1, tree.getNumberOfNodes());
+        assertEquals(1, tree.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
@@ -89,6 +103,13 @@ public class BinaryTreeTest
         System.out.print("\n");
 
         assertEquals("EDCBA\nEDCBA\n", out.toString());
+
+        // Tests height and nodes
+        assertEquals(5, tree.getHeight());
+        assertEquals(5, tree.getHeight_callBinaryNodeMethod());
+
+        assertEquals(5, tree.getNumberOfNodes());
+        assertEquals(5, tree.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
@@ -122,6 +143,13 @@ public class BinaryTreeTest
         System.out.print("\n");
 
         assertEquals("DEBCA\nDEBCA\n", out.toString());
+
+        // Tests height and nodes
+        assertEquals(3, tree.getHeight());
+        assertEquals(3, tree.getHeight_callBinaryNodeMethod());
+
+        assertEquals(5, tree.getNumberOfNodes());
+        assertEquals(5, tree.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
@@ -157,6 +185,13 @@ public class BinaryTreeTest
         System.out.print("\n");
 
         assertEquals("DEBFGCA\nDEBFGCA\n", out.toString());
+
+        // Tests height and nodes
+        assertEquals(3, tree.getHeight());
+        assertEquals(3, tree.getHeight_callBinaryNodeMethod());
+
+        assertEquals(7, tree.getNumberOfNodes());
+        assertEquals(7, tree.getNumberOfNodes_callBinaryNodeMethod());
     }
 
     @Test
@@ -195,5 +230,12 @@ public class BinaryTreeTest
         System.out.print("\n");
 
         assertEquals("DEBGFCA\nDEBGFCA\n", out.toString());
+
+        // Tests height and nodes
+        assertEquals(4, tree.getHeight());
+        assertEquals(4, tree.getHeight_callBinaryNodeMethod());
+
+        assertEquals(7, tree.getNumberOfNodes());
+        assertEquals(7, tree.getNumberOfNodes_callBinaryNodeMethod());
     }
 }
