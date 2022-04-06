@@ -20,7 +20,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    } // end constructor
 
    //extra feature
-   public BinaryTree(String post, String in)
+   public BinaryTree(String pre, String in)
    {
        /*
         Given Tree:
@@ -33,7 +33,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
                  G
         */
 
-      // post : DEBGFCA
+      // pre : DEBGFCA
       // in : DBEAFGC
 
    }

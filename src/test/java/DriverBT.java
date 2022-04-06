@@ -34,6 +34,7 @@ public class DriverBT
 		
 		System.out.println("(binaryTree) post-order: ");
 		aTree2.postorderTraverse();
+		System.out.println();
 		
 		System.out.println("(binaryNode) post-order: ");
 		aTree2.postorderTraverse_callBinaryNodeMethod();
@@ -79,7 +80,7 @@ public class DriverBT
 	/**-------------------------------------------------------------------- */
 	/**Task 4: Create a tree case as shown in assignment 3*/
 	public static void createTree2(BinaryTree<String> tree)
-	{ 
+	{
 
 	} // end createTree2
 
