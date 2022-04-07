@@ -239,43 +239,43 @@ public class BinaryTreeTest
         assertEquals(7, tree.getNumberOfNodes_callBinaryNodeMethod());
     }
 
-    @Test
-    public void preorderAndInorderTree()
-    {
-       /*
-        Given Tree:
-             A
-           /   \
-          B     C
-         / \   /
-        D   E  F
-
-        */
-
-        // pre : ABDECFG
-        // in : DBEAFGC
-
-        // root : A
-        // leftmost: D
-        // rightmost: G
-
-        BinaryTree<String> tree = new BinaryTree("ABDECF", "DBEAFC");
-
-        // Tests both public and private postorderTraverse methods in BinaryTree
-        tree.postorderTraverse();
-        System.out.print("\n");
-
-        // Tests postorderTraverse_BinaryNodeMethod in BinaryNode and postorderTraverse_
-        tree.postorderTraverse_callBinaryNodeMethod();
-        System.out.print("\n");
-
-        assertEquals("DEBGFCA\nDEBGFCA\n", out.toString());
-
-        // Tests height and nodes
-        assertEquals(4, tree.getHeight());
-        assertEquals(4, tree.getHeight_callBinaryNodeMethod());
-
-        assertEquals(7, tree.getNumberOfNodes());
-        assertEquals(7, tree.getNumberOfNodes_callBinaryNodeMethod());
-    }
+//    @Test
+//    public void preorderAndInorderTree()
+//    {
+//       /*
+//        Given Tree:
+//             A
+//           /   \
+//          B     C
+//         / \   /
+//        D   E  F
+//
+//        */
+//
+//        // pre : ABDECFG
+//        // in : DBEAFGC
+//
+//        // root : A
+//        // leftmost: D
+//        // rightmost: G
+//
+//        BinaryTree<String> tree = new BinaryTree("ABDECF", "DBEAFC");
+//
+//        // Tests both public and private postorderTraverse methods in BinaryTree
+//        tree.postorderTraverse();
+//        System.out.print("\n");
+//
+//        // Tests postorderTraverse_BinaryNodeMethod in BinaryNode and postorderTraverse_
+//        tree.postorderTraverse_callBinaryNodeMethod();
+//        System.out.print("\n");
+//
+//        assertEquals("DEBGFCA\nDEBGFCA\n", out.toString());
+//
+//        // Tests height and nodes
+//        assertEquals(4, tree.getHeight());
+//        assertEquals(4, tree.getHeight_callBinaryNodeMethod());
+//
+//        assertEquals(7, tree.getNumberOfNodes());
+//        assertEquals(7, tree.getNumberOfNodes_callBinaryNodeMethod());
+//    }
 }
