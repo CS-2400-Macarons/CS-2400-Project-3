@@ -22,6 +22,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    //extra feature
    public BinaryTree(String pre, String in)
    {
+      System.out.println(pre + " and " + in);
        /*
         Given Tree:
              A
@@ -33,8 +34,189 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
                  G
         */
 
-      // pre : DEBGFCA
+      // pre : ABDECFG
       // in : DBEAFGC
+
+      // If it's just one node or not
+      if(!(pre.length() <= 1 || in.length() <= 1))
+      {
+         String root = pre.substring(0, 1);
+         String inLeftSubtree = "";
+         String inRightSubtree = "";
+         String preLeftSubtree = "";
+         String preRightSubtree = "";
+         int rootIndex = 0;
+         int treeTransitionIndex = 0;
+
+         // INORDER Gets left subtree for inorder
+         for(int i = 0; i < in.length(); i++)
+         {
+            if(!(i >= in.length()-1))
+            {
+               if(!in.substring(i, i + 1).equals(root))
+               {
+                  inLeftSubtree += in.substring(i, i + 1);
+               }
+               else
+               {
+                  rootIndex = i;
+                  i = in.length(); // stops loop
+               }
+            }
+         }
+
+         // INORDER Gets right subtree for inorder
+         for(int i = rootIndex + 1; i < in.length(); i++)
+         {
+            if(!(i >= in.length() -1))
+            {
+               if(!in.substring(i, i + 1).equals(root))
+               {
+                  inRightSubtree += in.substring(i, i + 1);
+               }
+               else
+               {
+                  i = in.length(); // stops loop
+               }
+            }
+            else
+            {
+               inRightSubtree += in.substring(i);
+            }
+         }
+
+         // PREORDER Gets left subtree for preorder
+         if(inLeftSubtree.length() <= 1)
+         {
+            preLeftSubtree += inLeftSubtree;
+         }
+         else
+         {
+            for(int i = 1; i < pre.length(); i++)
+            {
+               if(!(i >= pre.length() - 1))
+               {
+                     for(int k = 0; k < inLeftSubtree.length(); k++)
+                     {
+                        System.out.println(inLeftSubtree.substring(k, k + 1) + " : " + pre.substring(i, i + 1));
+
+                        if(k >= inLeftSubtree.length() - 1)
+                        {
+                           if(inLeftSubtree.substring(k).equals(pre.substring(i, i + 1)))
+                           {
+                              preLeftSubtree += pre.substring(i, i + 1);
+                           }
+                           treeTransitionIndex = i;
+                           i = pre.length();
+                        }
+                        else if (inLeftSubtree.substring(k, k + 1).equals(pre.substring(i, i + 1)))
+                        {
+                           k = inLeftSubtree.length();
+                           preLeftSubtree += pre.substring(i, i + 1);
+                        }
+                     }
+               }
+               else
+               {
+                  for(int k = 0; k < inLeftSubtree.length(); k++)
+                  {
+
+                     if(k >= inLeftSubtree.length() - 1)
+                     {
+                        if(inLeftSubtree.substring(k).equals(pre.substring(i, i + 1)))
+                        {
+                           preLeftSubtree += pre.substring(i);
+                        }
+                        else
+                        {
+                           i = pre.length();
+                        }
+                     }
+                     else if (inLeftSubtree.substring(k, k + 1).equals(pre.substring(i)))
+                     {
+                        k = inLeftSubtree.length();
+                        preLeftSubtree += pre.substring(i);
+                     }
+                  }
+                  treeTransitionIndex = i;
+               }
+            }
+         }
+
+         System.out.println(treeTransitionIndex);
+
+         // PREORDER Gets right subtree for preorder
+         if(inRightSubtree.length() <= 1)
+         {
+            preRightSubtree += inRightSubtree;
+         }
+         else
+         {
+
+            for(int i = treeTransitionIndex + 1; i < pre.length(); i++)
+            {
+               if(!(i >= pre.length() - 1))
+               {
+                  for(int k = 0; k < inRightSubtree.length(); k++)
+                  {
+                     if(k >= inRightSubtree.length() - 1)
+                     {
+                        if(inRightSubtree.substring(k).equals(pre.substring(i, i + 1)))
+                        {
+                           preRightSubtree += pre.substring(i, i + 1);
+                        }
+                     }
+                     else if (inRightSubtree.substring(k, k + 1).equals(pre.substring(i, i + 1)))
+                     {
+                        System.out.println("2nd reached");
+                        k = inRightSubtree.length();
+                        preRightSubtree += pre.substring(i, i + 1);
+                     }
+                  }
+               }
+               else if (i == pre.length() - 1)
+               {
+                  for(int k = 0; k < inRightSubtree.length(); k++)
+                  {
+
+                     if(k >= inRightSubtree.length() - 1)
+                     {
+                        if(inRightSubtree.substring(k).equals(pre.substring(i)))
+                        {
+                           preRightSubtree += pre.substring(i);
+                        }
+                     }
+                     else if (inRightSubtree.substring(k, k + 1).equals(pre.substring(i)))
+                     {
+                        k = inRightSubtree.length();
+                        preRightSubtree += pre.substring(i);
+                     }
+                  }
+               }
+            }
+         }
+
+         System.out.println("Inorder: " + inLeftSubtree + " and " + inRightSubtree);
+
+         System.out.println("Preorder: " + preLeftSubtree + " and " + preRightSubtree);
+
+         // Initialization
+         BinaryTree<T> leftChild = new BinaryTree<>(preLeftSubtree, inLeftSubtree);
+         BinaryTree<T> rightChild = new BinaryTree<>(preRightSubtree, inRightSubtree);
+         setTree((T)root, leftChild, rightChild);
+      }
+      else
+      {
+         // Leaf/Singular Node
+         if(pre == null || pre.equals(""))
+         {
+            new BinaryTree<>();
+         }
+         else
+         {
+            new BinaryTree<>((T) pre, null, null);
+         }
+      }
 
    }
 
